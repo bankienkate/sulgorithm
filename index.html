@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>술고리즘</title>
     <style>
         * {
             margin: 0;
@@ -14,11 +14,33 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
             background: white;
+        }
+        
+        .header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        
+        .brand-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
         }
         
         h1 {
@@ -29,12 +51,42 @@
         
         /* Mobile responsive media queries */
         @media screen and (max-width: 768px) {
+            .header {
+                top: 15px;
+                left: 15px;
+                gap: 10px;
+            }
+            
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .brand-name {
+                font-size: 24px;
+            }
+            
             h1 {
                 font-size: 36px;
             }
         }
         
         @media screen and (max-width: 480px) {
+            .header {
+                top: 10px;
+                left: 10px;
+                gap: 8px;
+            }
+            
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .brand-name {
+                font-size: 20px;
+            }
+            
             h1 {
                 font-size: 28px;
             }
@@ -46,6 +98,10 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e18e5155-0b53-4c1d-9b46-3240ecac0e91.png" alt="술고리즘 로고" class="logo">
+        <span class="brand-name">술고리즘</span>
+    </div>
     <h1>Hello World</h1>
 </body>
 </html>
