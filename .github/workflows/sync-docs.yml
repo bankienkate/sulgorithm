@@ -1,0 +1,37 @@
+name: Sync docs directory
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'sulgorithm/src/**'  # Only trigger when src files change
+
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Fetch all history for proper sync
+        
+    - name: Sync src to docs
+      run: |
+        rm -rf docs/
+        cp -r sulgorithm/src docs
+        
+    - name: Check for changes
+      id: check
+      run: |
+        if [[ -n "$(git status --porcelain docs/)" ]]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Commit and push if changed
+      if: steps.check.outputs.changes == 'true'
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add docs/
+        git commit -m "chore: sync docs/ with latest src changes [skip ci]"
+        git push
