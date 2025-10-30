@@ -1,0 +1,17 @@
+{
+  "name": "sulgorithm",
+  "version": "1.0.0",
+  "description": "A project for demonstrating algorithms with a web interface.",
+  "main": "src/js/main.js",
+  "scripts": {
+    "start": "http-server src",
+    "dev": "live-server src"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "live-server": "^1.2.1"
+  }
+}
