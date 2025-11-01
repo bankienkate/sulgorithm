@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  dev:
+    build:
+      context: ./sulgorithm
+      target: dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./sulgorithm:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
+    tty: true
+
+  prod:
+    build:
+      context: ./sulgorithm
+      target: prod
+    ports:
+      - "8080:80"
